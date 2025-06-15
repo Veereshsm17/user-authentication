@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login | UVCE</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Login</h2>
+
+    <% if (typeof error !== 'undefined') { %>
+      <div class="error-message"><%= error %></div>
+    <% } %>
+
+    <form action="/login" method="POST">
+      <div class="form-group">
+        <input type="text" name="username" placeholder="Username" required>
+      </div>
+      <div class="form-group">
+        <input type="password" name="password" id="password" placeholder="Password" required>
+        <span class="eye-icon" onclick="togglePassword()">👁️</span>
+      </div>
+      <button type="submit">Login</button>
+      <p><a href="/forgot">Forgot Password?</a></p>
+      <p>Don’t have an account? <a href="/signup">Sign Up</a></p>
+    </form>
+  </div>
+
+  <script>
+    function togglePassword() {
+      const pass = document.getElementById('password');
+      pass.type = pass.type === 'password' ? 'text' : 'password';
+    }
+  </script>
+</body>
+</html>

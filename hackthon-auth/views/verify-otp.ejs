@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Verify OTP</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Verify OTP</h2>
+
+    <% if (typeof error !== 'undefined') { %>
+      <div class="error-message"><%= error %></div>
+    <% } %>
+
+    <form action="/verify-otp" method="POST">
+      <input type="hidden" name="username" value="<%= username %>">
+      <div class="form-group">
+        <input type="text" name="otp" placeholder="Enter OTP" required>
+      </div>
+      <button type="submit">Verify</button>
+    </form>
+  </div>
+</body>
+</html>
